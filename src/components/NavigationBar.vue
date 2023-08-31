@@ -3,7 +3,9 @@
     <div class="full-width d-flex justify-space-between">
       <div class="d-flex align-center">
         <IconButton icon="mdi-menu" />
-        <div class="text-dp-xs font-weight-bold ml-2">iDas</div>
+          <div class="text-dp-xs font-weight-bold ml-2" @click="routerPush">
+            iDas
+          </div>
       </div>
     </div>
     <div class="d-flex align-center gap-16">
@@ -25,8 +27,8 @@
     </div>
   </v-app-bar>
 </template>
-  
-  <script>
+
+<script>
 import { mapStores } from "pinia";
 import { userStore } from "@/stores/userStore";
 
@@ -38,13 +40,18 @@ export default {
     IconButton: () => import("./IconButton.vue"),
   },
   created() {},
+  methods:{
+    routerPush(){
+      this.$router.push('/dashboard')
+      window.location.reload();
+    }
+  }
 };
 </script>
-  
+
 <style lang="scss" scoped>
 .avatar-img {
   width: 32px;
   height: 32px;
 }
 </style>
-  
